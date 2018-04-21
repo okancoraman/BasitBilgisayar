@@ -1,0 +1,14 @@
+ get
+ store sayi
+fact
+ load sayi
+ mul carp
+ store carp
+ load sayi
+ sub 1
+ store sayi
+ sub 1
+ ifpos fact
+sayi 0
+carp 1
+

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>Basit Bilgisayar</title>
+    <style>
+        .row{
+            margin-top:20px;
+        }
+        .bck{
+            font-size: 20px;
+            text-decoration:underline;
+        }
+    </style>
+</head>
+<body>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Komutlar</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                        <div class="col-md-12">
+                            <ul>
+                                <li>     <span class="badge badge-pill badge-info">get     </span>   klavyeden okunan girdiyi akümülatöre kaydet
+                                </li><li><span class="badge badge-pill badge-info">print   </span>   akümülatör içeriğini görüntüle
+                                </li><li><span class="badge badge-pill badge-info">load Val</span>   akümülatöre Val değerini yükle
+                                </li><li><span class="badge badge-pill badge-info">store M </span>   akümülatör içeriğini M bellek adresine kaydet
+                                </li><li><span class="badge badge-pill badge-info">add Val </span>   akümülatör içeriğiyle Val değerini topla (sonuç akümülatörde)
+                                </li><li><span class="badge badge-pill badge-info">mod Val </span>   akümülatör içeriğiyle Val değerini modülüsünü al (sonuç akümülatörde)
+                                </li><li><span class="badge badge-pill badge-info">sub Val </span>   akümülatör içeriğinden Val değerini çıkar (sonuç akümülatörde)
+                                </li><li><span class="badge badge-pill badge-info">mul Val </span>   akümülatör içeriğiyle Val değerini çarp (sonuç akümülatörde)
+                                </li><li><span class="badge badge-pill badge-info">div Val </span>   akümülatör içeriğiyle Val değerini böler (sonuç akümülatörde)
+                                </li><li><span class="badge badge-pill badge-info">goto L  </span>   L etiketli satıra git
+                                </li><li><span class="badge badge-pill badge-info">ifpos L </span>   eğer akümülatör içeriği >= 0 ise L etiketli satıra git
+                                </li><li><span class="badge badge-pill badge-info">ifzero L</span>   eğer akümülatör içeriği 0 ise L etiketli satıra git
+                                </li><li><span class="badge badge-pill badge-info">ifneg L </span>   eğe akümülatör içeriği < 0 ise L etiketli satıra git
+                                </li><li><span class="badge badge-pill badge-info">stop    </span>   dur
+                                </li><li><span class="badge badge-pill badge-info">M Num  </span> M isimli bellek hücresini Num değeriyle ilklendir (program çalışmaya başlamadan önce)
+                                    </li>
+                            </ul>
+                            Burası dışında kullanacağınız komutlar atlanacaktır.
+                        </div>
+                    </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Kapat</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Kullanım Şekli</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                        <div class="col-md-12">
+                            <ul>
+                                <li>Komutların başında "1" adet boşluk olmalıdır!</li>
+                                <li>Etiket satırların başında boşluk bulunmamalıdır.</li>
+                                <li>Komutların veya etiketlerin sonunda boşluk olmamalıdır!</li>
+                                <li>Kod eklendiğinde adımlama işlemini baştan almak için sıfırlama kullanılmalıdır.</li>
+                                <li>1000 işlemden daha fazla boyutta bir döngü veya işlem satırını program çalıştırmayacaktır.</li>
+                                <li>Kodu çalıştır butonundan sonra adımla işlemi çalışması için sıfırlama yapmanız gerekmektedir.</li>
+                                <li>Eğer Val değeri örneğin 17 gibi bir sayı ise bu değer doğrudan kullanılır. </li>
+                                <li>Eğer Val değeri sayısal bir ifada değilse o bellek hücresi kabul edilecektir.</li>
+                                <li>Programda her satır yanlızca 1 işlemi ifade edebilir etiket satırı dahi olsa!</li>
+                            </ul>
+                        </div>
+                    </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Kapat</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Kullanım Şekli</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                            <div class="col-md-12">
+                                <a href="1.txt" class="btn btn-outline-warning">1'den 100'e kadar olan sayıların toplamı</a><hr class="my-2">
+                                <a href="3.txt" class="btn btn-outline-warning">100'den 1'e kadar olan sayıların toplamı</a><hr class="my-2">
+                                <a href="2.txt" class="btn btn-outline-warning">Faktöriyel Hesabı Yapan Program</a>
+                            </div>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Kapat</button>
+                </div>
+              </div>
+            </div>
+          </div>
+    <div id="app">
+        <div class="container">
+            <div class="jumbotron" style="margin-top:50px;">
+              <h1 class="display-4">Basit Bilgisayara Hoş Geldiniz</h1>
+              <p class="lead">Burada size bilgisayarın mimari alt yapısını kavrayabilmeniz adına denemeler yapabileceğiniz basit bir program mevcuttur. </p>
+              <hr class="my-4">
+              <p>Bilgisayarımız 8 adet bellek hücresinden oluşmaktadır. Hücrelerin boyutları için sayısal bir limitlendirme bulunmamaktadır. Bilgisayarı kullanabilmek için belirli komut setleri ve kurallar mevcuttur. 
+                      Bu komut setlerini programla amacı ile kullanabilirsiniz. Kurallar ise yazılan komutları bilgisayarın anlayabilmesi ve gerekli işlemleri icra edebilmesi için özellikle eklendi.</p>
+                <p class="lead"><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal">Komut Seti</button> 
+                    <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal2">Kullanım Kuralları</button>
+                    <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal3">Örnek Programlar</button>
+                </p>
+            </div>
+            <div class="row">
+                <div class="col-md-1">
+                    <h4>Satır:</h4>
+                    <textarea cols="1" class="form-control bck" rows="10" v-model="linecomp" readonly></textarea>
+                </div>
+                <div class="col-md-7">
+                    <h4>Kod:</h4>
+                    <textarea cols="75" class="form-control bck" rows="10" v-model="code"></textarea>
+                </div>
+                <div class="col-md-4">
+                    <h4>Ekran Çıktısı:</h4>
+                    <textarea cols="30" class="form-control" rows="10" v-model="result" readonly></textarea>
+                </div>
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-outline-primary" v-on:click="gogo" style="margin-top:10px;">Kodu Çalıştır</button>
+                    <button type="submit" class="btn btn-outline-primary" v-on:click="stepbystep" style="margin-top:10px;" v-if="adimbtn">Adımla</button>
+                    <button type="submit" class="btn btn-outline-primary" v-on:click="clean" style="margin-top:10px;">Sıfırla</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5">
+                    <h5>Bellek</h5>
+                    <div class="form-row" v-for="item in memory" style="margin-bottom:5px;">
+                        <div class="col">
+                            <input type="text" class="form-control" :value="item.name" readonly>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" :value="item.val" readonly>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-4 offset-md-3">
+                    <div class="row">
+                        <h5>Akümülator <span class="badge badge-pill badge-success">{{ac}}</span></h5>
+                    </div>
+                    <div class="row">
+                        <h5>Program Sayacı <span class="badge badge-pill badge-info">{{pc}}</span></h5>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <p class="lead">Bu program Bilgisayar Mimarisi dersi için yapılmıştır. Komut seti olarak <a href="http://toy.ecylmz.com/">Oyuncak Makine</a> referans alınmıştır. Kodlaması tarafıma aittir. Program hakkında görüş ve önerileriniz için mail atabilirsiniz. Mail adresim: ugrmhmt@gmail.com</p>
+        
+        </div>
+       </div>
+    <script src="js/vue.js"></script>
+    <script src="machine.js"></script>
+    <script src="js/jquery-3.2.1.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>

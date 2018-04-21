@@ -1,0 +1,11 @@
+ load ac
+toplama
+ add sayi
+ store sayi
+ load ac
+ sub 1
+ store ac
+ ifpos toplama
+sayi 0
+ac 100
+

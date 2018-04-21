@@ -1,0 +1,15 @@
+ load ac
+toplama
+ load ac
+ add sayi
+ store sayi
+ load ac
+ add 1
+ store ac
+ mod 101
+ ifzero btr
+ goto toplama
+btr
+sayi 0
+ac 1
+
